@@ -13,7 +13,12 @@ class ProcessResponse(OwnBaseModel):
     id: str
     name: str
     description: str
-    report_ids: List[str]
+
+class ReportResponse(OwnBaseModel):
+    id: str
+    name: str
+    description: str
+    procedure: str
 
 class CardResponse(OwnBaseModel):
     id: str

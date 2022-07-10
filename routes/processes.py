@@ -9,6 +9,8 @@ from models.users import *
 from models.access import *
 from models.permissions import *
 from models.processes import *
+from models.reports import *
+from models.process_report import *
 from models.cards import *
 from models.details import *
 from models.activity import *
@@ -41,6 +43,23 @@ def listProcesses(db: Session = Depends(get_db)):
 )
 def getProcess(process_id, db: Session = Depends(get_db)):
     return db.query(processes_table).where(processes_table.id == process_id).first()
+
+
+@processes_routes.get(
+    path='/{process_id}/reports',
+    response_model=List[ReportResponse],
+    status_code=status.HTTP_200_OK,
+    summary=""
+)
+def listProcessReports(process_id, db: Session = Depends(get_db)):
+    return db.query(
+        reports_table
+    ).where(
+        and_(
+            process_report_table.process_id == process_id,
+            process_report_table.report_id == reports_table.id
+        )
+    ).all()
 
 
 @processes_routes.get(

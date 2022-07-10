@@ -22,6 +22,7 @@ Repository description here
 |---------|---------|--------------------------------------------------|
 | &check; |`GET`    |`/processes`                                      |
 | &check; |`GET`    |`/processes/{process_id}`                         |
+| &check; |`GET`    |`/processes/{process_id}/reports`                 |
 | &check; |`GET`    |`/processes/{process_id}/cards`                   |
 | &check; |`GET`    |`/processes/{process_id}/cards/{card_id}`         |
 | &check; |`GET`    |`/processes/{process_id}/cards/{card_id}/details` |

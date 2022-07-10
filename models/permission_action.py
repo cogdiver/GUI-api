@@ -2,9 +2,9 @@ from sqlalchemy import Column, ForeignKey, String
 from databases import Base
 
 
-class access_table(Base):
-    __tablename__ = "access"
+class permission_action_table(Base):
+    __tablename__ = "permission_action"
 
     id = Column(String, primary_key=True)
-    user_id = Column(String, ForeignKey("passwords.id", ondelete="CASCADE"))
     permission_id = Column(String, ForeignKey("permissions.id", ondelete="CASCADE"))
+    action_id = Column(String, ForeignKey("actions.id", ondelete="CASCADE"))

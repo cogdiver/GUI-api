@@ -7,14 +7,15 @@ from fastapi import status, APIRouter, Depends
 # Models and schemas
 from models.users import *
 from models.access import *
+from models.processes import *
 from models.actions import *
 from models.permissions import *
-from models.processes import *
+from models.permission_action import *
 from schemas.users import *
 
 # Utils
 from sqlalchemy.orm import Session
-from sqlalchemy import and_, any_
+from sqlalchemy import and_, any_, Column
 from databases import get_db, engine
 
 
@@ -77,17 +78,24 @@ def listUserProcesses(user_id, db: Session = Depends(get_db)):
 
 @users_routes.get(
     path='/{user_id}/actions',
-    # response_model=List[UserActionsResponse],
+    response_model=List[UserActionsResponse],
     status_code=status.HTTP_200_OK,
     summary=""
 )
 def listUserActions(user_id, db: Session = Depends(get_db)):
     return db.query(
-        actions_table
+        permissions_table.process_id,
+        actions_table.id,
+        actions_table.name,
+        actions_table.description,
+        actions_table.url,
+        actions_table.params,
+        actions_table.execution_template
     ).where(
         and_(
             access_table.user_id == user_id,
             access_table.permission_id == permissions_table.id,
-            actions_table.id == any_(permissions_table.action_ids)
+            permission_action_table.permission_id == permissions_table.id,
+            permission_action_table.action_id == actions_table.id
         )
     ).all()

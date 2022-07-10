@@ -12,4 +12,3 @@ class permissions_table(Base):
     process_id = Column(String, ForeignKey("processes.id", ondelete="CASCADE"))
     allow_comments = Column(Boolean)
     states = Column(ARRAY(Enum(State)))
-    action_ids = Column(ARRAY(String))

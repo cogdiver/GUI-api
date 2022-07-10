@@ -18,15 +18,14 @@ class UserPermissionsResponse(OwnBaseModel):
     process_id: str
     allow_comments: bool
     states: List[State]
-    action_ids: List[str]
 
 class UserProcessesResponse(OwnBaseModel):
     id: str
     name: str
     description: str
-    report_ids: List[str]
 
 class UserActionsResponse(OwnBaseModel):
+    process_id: str
     id: str
     name: str
     description: str
