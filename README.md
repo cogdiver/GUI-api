@@ -11,7 +11,7 @@ Repository description here
 |         |`GET`    |`/users/{user_id}`                                |
 | &check; |`GET`    |`/users/{user_id}/permissions`                    |
 | &check; |`GET`    |`/users/{user_id}/processes`                      |
-|         |`GET`    |`/users/{user_id}/products`                       |
+| &check; |`GET`    |`/users/{user_id}/products`                       |
 | &check; |`GET`    |`/users/{user_id}/actions`                        |
 |         |`POST`   |`/users`                                          |
 |         |`PATCH`  |`/users/{user_id}`                                |
