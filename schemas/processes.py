@@ -8,9 +8,9 @@ from pydantic import BaseModel
 # Utils
 from schemas.generals import OwnBaseModel
 
-
 class ProcessResponse(OwnBaseModel):
     id: str
+    product_id: str
     name: str
     description: str
 

@@ -8,10 +8,15 @@ from fastapi import status, APIRouter, Depends
 from models.users import *
 from models.access import *
 from models.processes import *
+from models.products import *
 from models.actions import *
 from models.permissions import *
 from models.permission_action import *
 from schemas.users import *
+from schemas.products import *
+from schemas.processes import *
+from schemas.permissions import *
+from schemas.actions import *
 
 # Utils
 from sqlalchemy.orm import Session
@@ -43,7 +48,7 @@ def listUsers(user_id, db: Session = Depends(get_db)):
 
 @users_routes.get(
     path='/{user_id}/permissions',
-    response_model=List[UserPermissionsResponse],
+    response_model=List[PermissionResponse],
     status_code=status.HTTP_200_OK,
     summary=""
 )
@@ -60,7 +65,7 @@ def listUserPermissions(user_id, db: Session = Depends(get_db)):
 
 @users_routes.get(
     path='/{user_id}/processes',
-    response_model=List[UserProcessesResponse],
+    response_model=List[ProcessResponse],
     status_code=status.HTTP_200_OK,
     summary=""
 )
@@ -77,8 +82,27 @@ def listUserProcesses(user_id, db: Session = Depends(get_db)):
 
 
 @users_routes.get(
+    path='/{user_id}/products',
+    response_model=List[ProductResponse],
+    status_code=status.HTTP_200_OK,
+    summary=""
+)
+def listUserProcesses(user_id, db: Session = Depends(get_db)):
+    return db.query(
+        products_table
+    ).where(
+        and_(
+            access_table.user_id == user_id,
+            access_table.permission_id == permissions_table.id,
+            permissions_table.process_id == processes_table.id,
+            processes_table.product_id == products_table.id
+        )
+    ).all()
+
+
+@users_routes.get(
     path='/{user_id}/actions',
-    response_model=List[UserActionsResponse],
+    response_model=List[ActionResponse],
     status_code=status.HTTP_200_OK,
     summary=""
 )

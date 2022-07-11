@@ -8,6 +8,7 @@ from routes.permissions import permissions_routes
 from routes.actions import actions_routes
 from routes.reports import reports_routes
 from routes.processes import processes_routes
+from routes.products import products_routes
 
 app = FastAPI()
 app.add_middleware(
@@ -22,6 +23,7 @@ app.include_router(permissions_routes, prefix='/permissions', tags=["permissions
 app.include_router(actions_routes, prefix='/actions', tags=["actions"])
 app.include_router(reports_routes, prefix='/reports', tags=["reports"])
 app.include_router(processes_routes, prefix='/processes', tags=["processes"])
+app.include_router(products_routes, prefix='/products', tags=["products"])
 
 @app.get("/")
 async def root():

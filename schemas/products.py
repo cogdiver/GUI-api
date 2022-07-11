@@ -6,8 +6,10 @@ from pydantic import BaseModel
 
 # Utils
 from schemas.generals import OwnBaseModel
+from models.generals import State
 
-class UserResponse(OwnBaseModel):
+class ProductResponse(OwnBaseModel):
     id: str
     name: str
-    email: str
+    image_url: str
+    description: str

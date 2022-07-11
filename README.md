@@ -5,16 +5,17 @@ Repository description here
 ## Endpoints
 - Users endpoints
 
-|         |  metod  |           endpoint           |
-|---------|---------|------------------------------|
-| &check; |`GET`    |`/users`                      |
-|         |`GET`    |`/users/{user_id}`            |
-| &check; |`GET`    |`/users/{user_id}/permissions`|
-| &check; |`GET`    |`/users/{user_id}/processes`  |
-| &check; |`GET`    |`/users/{user_id}/actions`    |
-|         |`POST`   |`/users`                      |
-|         |`PATCH`  |`/users/{user_id}`            |
-|         |`DELETE` |`/users/{user_id}`            |
+|         |  metod  |                     endpoint                     |
+|---------|---------|--------------------------------------------------|
+| &check; |`GET`    |`/users`                                          |
+|         |`GET`    |`/users/{user_id}`                                |
+| &check; |`GET`    |`/users/{user_id}/permissions`                    |
+| &check; |`GET`    |`/users/{user_id}/processes`                      |
+|         |`GET`    |`/users/{user_id}/products`                       |
+| &check; |`GET`    |`/users/{user_id}/actions`                        |
+|         |`POST`   |`/users`                                          |
+|         |`PATCH`  |`/users/{user_id}`                                |
+|         |`DELETE` |`/users/{user_id}`                                |
 
 - Processes endpoints
 
@@ -36,6 +37,17 @@ Repository description here
 |         |`PATCH`  |`/processes/{process_id}/logs/{log_id}`           |
 |         |`DELETE` |`/processes/{process_id}`                         |
 |         |`DELETE` |`/processes/{process_id}/logs/{log_id}`           |
+
+
+- Products endpoints
+
+|         |  metod  |                     endpoint                     |
+|---------|---------|--------------------------------------------------|
+| &check; |`GET`    |`/products`                                       |
+| &check; |`GET`    |`/products/{product_id}`                          |
+|         |`POST`   |`/products`                                       |
+|         |`PATCH`  |`/products/{product_id}`                          |
+|         |`DELETE` |`/products/{product_id}`                          |
 
 - Permissions endpoints
 
