@@ -8,7 +8,7 @@ Repository description here
 |         |  metod  |                     endpoint                     |
 |---------|---------|--------------------------------------------------|
 | &check; |`GET`    |`/users`                                          |
-|         |`GET`    |`/users/{user_id}`                                |
+| &check; |`GET`    |`/users/{user_id}`                                |
 | &check; |`GET`    |`/users/{user_id}/permissions`                    |
 | &check; |`GET`    |`/users/{user_id}/processes`                      |
 | &check; |`GET`    |`/users/{user_id}/products`                       |
